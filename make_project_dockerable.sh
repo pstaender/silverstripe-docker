@@ -9,9 +9,12 @@ fi
 if $(cd $1)
 	then
 		echo "Preparing $1 for docker"
-		for file in docker-compose.yml Dockerfile php.ini vhost.conf
+    basedir=$(dirname "$0")
+		for file in docker-compose.yml Dockerfile php.ini vhost.conf _ss_environment.php
 		do
-			echo "$file -> $1/$file"
-			cp -i $file $1/$file
-		done 
+			echo "$basedir/$file -> $1/$file"
+			cp -i $basedir/$file $1/$file
+		done
+    echo "\nAlmost Done. Don't forget to move/create your _ss_environment.php to the www folder, AFTER running the initial build and composer setup:"
+    echo "\n\tmv $basedir/_ss_environment.php $1/www/\n"
 fi
