@@ -13,4 +13,4 @@ RUN docker-php-ext-install -j$(nproc) iconv mcrypt \
     && docker-php-ext-install -j$(nproc) gd \
     && docker-php-ext-install zip
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
-RUN curl -s https://raw.githubusercontent.com/silverstripe/silverstripe-framework/master/sake > /usr/local/bin/sake; chmod +x /usr/local/bin/sake
+RUN curl -s https://raw.githubusercontent.com/silverstripe/silverstripe-framework/3.6/sake > /usr/local/bin/sake; chmod +x /usr/local/bin/sake
