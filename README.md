@@ -1,66 +1,34 @@
-# Docker Compose Example for SilverStripe 3.x Projects
-
-## Features
-
-  * PHP 5.6
-    * customizable php.ini
-  * Apache 2, by default:
-    * modrewrite enabled
-    * .htaccess enabled (`AllowOverride All`)
-    * customizable vhost.conf
-    * running on reachable port 8020
-    * using this folder as root folder on `http://localhost:8020/`
-  * newest MariaDB version, by default:
-    * running on reachable port 3320
-
-Of course you can setup your own components (e.g. mysql instead of mariadb)
-
-## Setup and Install
-
-Assuming your project dir is `~/your_silverstripe_project`:
-
-```sh
-  $ git clone git@github.com:pstaender/silverstripe-docker-composer-php-lamp-boilerplate.git ~/silverstripe-docker-composer-php-lamp-boilerplate
-  $ mkdir -p ~/your_silverstripe_project/www
-  $ ~/silverstripe-docker-composer-php-lamp-boilerplate/make_project_dockerable.sh ~/your_silverstripe_project
-  $ cd ~/your_silverstripe_project
-  $ docker-compose build
-  $ docker-compose run php composer create-project silverstripe/installer .
-  $ mv _ss_environment.php www/
-```
-
-## Start
-
-```sh
-  $ docker-compose up
-```
-
-Stop services with `ctr+c` (twice to force stop). To run in background:
-
-```sh
-  $ docker-compose up -d
-```
-
-## Webserver und Databse
-
-The SilverStripe webpage is on `localhost:8020`, mariadb / mysql is available via `mysql --port=3320 --user=root --password=secret_password`.
-
-## CLI usage and composer
-
-```sh
-  $ docker-compose run php bash
-  [docker]$ composer update
-```
+# Docker Repositories for SilverStripe v4 and v3
 
 ## Usage
 
-Just use / setup your SilverStripe project inside the `www` folder with the given `_ss_environment.php` and your site should be available on `http://localhost:8020/`.
+In your `Dockerfile`:
 
-**This docker environment is made for development only - please don't ever use this in production.**
+```Dockerfile
+FROM pstaender/silverstripe4:latest
+```
 
-## Tested hosts
+and
 
-Testes on Mac OS X and Linux; but Windows should work as well.
+```Dockerfile
+FROM pstaender/silverstripe3:latest
+```
+
+respectively.
+
+## Features
+
+  * LAP (Linux, Apache and PHP)
+  * Ubuntu
+    * sake cli tool installed
+  * PHP
+    * with composer
+  * Apache 2
+    * modrewrite enabled
+
+## Examples for docker-compose
+
+The given images only provide Linux, PHP and Apache. MySQL / MariaDB should be included as external service. For that, take a look at the [examples](examples/).
 
 ## MIT License
 
