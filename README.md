@@ -2,19 +2,15 @@
 
 ## Usage
 
-In your `Dockerfile`:
-
-```Dockerfile
-FROM pstaender/silverstripe4:latest
-```
-
-and
+Usage in `Dockerfile` (for SS4.1 use silverstripe4:latest):
 
 ```Dockerfile
 FROM pstaender/silverstripe3:latest
+FROM pstaender/silverstripe4:latest
+FROM pstaender/silverstripe4.2:latest
 ```
 
-respectively.
+See [in the example section](examples/) for (almost) ready-to-use configurations with docker-compose.
 
 ## Features
 
@@ -25,10 +21,6 @@ respectively.
     * with composer
   * Apache 2
     * modrewrite enabled
-
-## Examples for docker-compose
-
-The given images only provide Linux, PHP and Apache. MySQL / MariaDB should be included as external service. For that, take a look at the [examples](examples/).
 
 ## MIT License
 
