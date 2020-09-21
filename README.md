@@ -2,12 +2,13 @@
 
 ## Usage
 
-Usage in `Dockerfile` (for SS4.1 use silverstripe4:latest):
+Usage in your `Dockerfile`:
 
 ```Dockerfile
 FROM pstaender/silverstripe3:latest
 FROM pstaender/silverstripe4:latest
 FROM pstaender/silverstripe4.2:latest
+FROM pstaender/silverstripe4.6:latest
 ```
 
 See [in the example section](examples/) for (almost) ready-to-use configurations with docker-compose.

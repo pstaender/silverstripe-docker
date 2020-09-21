@@ -15,7 +15,7 @@ services:
       - ./www:/var/www/html
     depends_on:
       - db
-  mailcatcher:
-    image: schickling/mailcatcher
+  mail:
+    image: mailhog/mailhog
     ports:
-      - "1080:1080"
+      - "8025:8025"
